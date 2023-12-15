@@ -31,7 +31,7 @@
                 </li>
             </ul>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique hic autem consequatur perspiciatis deleniti qui fugit illo excepturi aut, vitae cum nisi omnis quos recusandae. Dolores, aperiam similique! Sint, cum?</p>
+            <p>Lorem ipsu dolor sit amet consectetur adipisicing elit. Similique hic autem consequatur perspiciatis deleniti qui fugit illo excepturi aut, vitae cum nisi omnis quos recusandae. Dolores, aperiam similique! Sint, cum?</p>
         </div>
     </main>
 
