@@ -32,10 +32,10 @@
                     <img src="/bienes-raices/build/img/dark-mode.svg" alt="Cambiar de tema" class="dark-mode-boton">
 
                     <nav class="navegacion">
-                        <a href="nosotros.php">Nosotros</a>
-                        <a href="anuncios.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contacto.php">Contacto</a>
+                        <a href="/bienes-raices/nosotros.php">Nosotros</a>
+                        <a href="/bienes-raices/anuncios.php">Anuncios</a>
+                        <a href="/bienes-raices/blog.php">Blog</a>
+                        <a href="/bienes-raices/contacto.php">Contacto</a>
                         <?php if($auth): ?>
                             <a href="/bienes-raices/cerrar-sesion.php">Cerrar sesión</a>
                         <?php endif; ?>

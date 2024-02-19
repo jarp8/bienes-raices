@@ -2,18 +2,15 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
 
     estaAutenticado();
 
-    // Base de datos
-    $db = conectarDB();
-
     $propiedad = new Propiedad;
 
-    // Consultar para obtener los vendedores
-    $query = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db, $query);
+    // Consulta para obtener todos los vendedores
+    $vendedores = Vendedor::all();
 
     // Arreglo con mensajes de errores
     $errores = Propiedad::getErrores();
@@ -23,20 +20,19 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Crea una nueva instancia
-        $propiedad = new Propiedad($_POST);
+        $propiedad = new Propiedad($_POST['propiedad']);
 
         // Asignar files hacia una variable
         $imagen = $_FILES['imagen'];
 
         // Subida de archivos
-
         // Generar un nombre único
         $nombreImagen = md5(uniqid(rand(), true)) . $imagen['name'];
 
         // Setear la imagen
         // Realiza un resize a la imagen con intervention
-        if($_FILES['imagen']['tmp_name']) {
-            $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600);
+        if($_FILES['propiedad']['tmp_name']['imagen']) {
+            $image = Image::make($_FILES['propiedad']['tmp_name']['imagen'])->fit(800, 600);
             $propiedad->setImagen($nombreImagen);
         }
 
@@ -54,12 +50,7 @@
             $image->save(CARPETAS_IMAGENES . $nombreImagen);
 
             // Guardar en la base de datos
-            $resultado = $propiedad->guardar();
-
-            if($resultado) {
-                // Redireccionar al usuario
-                header('Location: /bienes-raices/admin/index.php?resultado=1');
-            }
+            $propiedad->guardar();
         }
     }
     
